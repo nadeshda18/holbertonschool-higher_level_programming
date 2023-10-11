@@ -1,5 +1,8 @@
 #!/bin/usr/python3
-"""This module contains a class Square that defines a square"""
+"""This module contains a class Square that defines a square:
+-Private instance attribute: size
+-Instantiation with size(no type/value verification)
+"""
 
 
 class Square:
