@@ -16,12 +16,20 @@ that returns the rectangle perimeter:
 
 
 class Rectangle:
+    """This class defines a Rectangle
+    Attributes:
+        width (int): width of the rectangle
+        height (int): height of the rectangle
+    """
 
     def __init__(self, width=0, height=0):
         """ Initialize a new Rectangle.
         parameters:
             width (int): width of the new rectangle.
             height (int): height of a new rectangle.
+        Raises:
+            TypeError: when width/height is no an integer
+            ValueError: when width/height less than zero
         """
         self.width = width
         self.height = height
