@@ -56,8 +56,7 @@ class Square:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     @property
     def position(self):
@@ -83,6 +82,7 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         if not all(x >= 0 for x in value):
             raise ValueError("position values must be >= 0")
+
         self.__position = value
 
     def area(self):
