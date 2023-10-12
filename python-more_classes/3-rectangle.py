@@ -80,14 +80,15 @@ class Rectangle:
         """ This method returns the rectangle perimeter."""
         if self.__width == 0 or self.__height == 0:
             return 0
-        return 2 * (self.__width * self.__height)
+        return (2 * self.__width) + (2 * self.__height)
 
     def __str__(self):
         """ This method returns a string with the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return (("#" * self.__width + "\n") * self.__height)[:-1]
+        rect_str = "\n".join(["#" * self.__width] * (self.__height))
+        return rect_str
 
     def __repr__(self):
         """ This method returns a string representation of the rectangle."""
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        return f"<3-rectangle.{self.__class__.__name__} object at {id(self)}>"
