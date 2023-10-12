@@ -34,8 +34,8 @@ class Square:
             ValueError: if size if less than 0 or position values are
             less than 0
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -100,8 +100,8 @@ class Square:
         """
         if self.__size == 0:
             print()
-        else:
-            for i in range(self.__position[1]):
-                print()
-            for i in range(self.__size):
-                print(" " * self.__position[0] + "#" * self.__size)
+            return
+
+        print("\n" * self.__position[1], end="")
+        for i in range(self.__size):
+            print(" " * self.__position[0] + "#" * self.__size)
