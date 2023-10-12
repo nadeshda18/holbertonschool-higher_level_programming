@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module contains a class Square that defines a square
 -Private instance attribute is size
--Instantiation with size(no type/value verification)
+-Instantiation with size(size: def __init__(self, size=0)
 """
 
 
