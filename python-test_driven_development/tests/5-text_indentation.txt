@@ -23,3 +23,11 @@ TypeError: text must be a string
 Traceback (most recent call last):
 ...
 TypeError: text must be a string
+>>> text_indentation("Hello, name? Walter.White:")
+Hello, name?
+<BLANKLINE>
+Walter.
+<BLANKLINE>
+White:
+<BLANKLINE>
+>>>
