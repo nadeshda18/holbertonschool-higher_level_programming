@@ -1,7 +1,5 @@
 #Test cases or 2-matrix_divided.py
 
->>> matrix_divided([[]], 3)
-[[]]
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 >>> print(matrix_divided(None, 2))
 Traceback (most recent call last):
