@@ -31,8 +31,3 @@ TypeError: size must be an integer
 Traceback (most recent call last):
 ...
 ValueError: size must be >=0
-
->>> print_square(-11)
-Traceback (most recent call last):
-...
-ValueError: size must be >=0
