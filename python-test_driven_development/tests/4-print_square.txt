@@ -6,23 +6,33 @@
 ####
 ####
 ####
+
 >>> print_square("t")
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
+
 >>> print_square("Letters")
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
+
 >>> print_square(-2.9)
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
+
 >>> print_square(3.8)
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
+
 >>> print_square(-3)
+Traceback (most recent call last):
+...
+ValueError: size must be >=0
+
+>>> print_square(-11)
 Traceback (most recent call last):
 ...
 ValueError: size must be >=0
