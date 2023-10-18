@@ -30,4 +30,3 @@ Walter.
 <BLANKLINE>
 White:
 <BLANKLINE>
->>>
