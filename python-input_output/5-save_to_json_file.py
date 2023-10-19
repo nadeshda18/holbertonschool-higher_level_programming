@@ -9,6 +9,7 @@ You don’t need to manage file permission exceptions.
 
 
 def save_to_json_file(my_obj, filename):
+    """write a function that writes an object to a text file"""
     import json
-    with open(filename, 'w') as f:
+    with open(filename, mode="w", encoding="utf-8") as f:
         json.dump(my_obj, f)
