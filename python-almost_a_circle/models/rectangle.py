@@ -10,6 +10,9 @@ Class constructor: def __init__(self, width, height, x=0, y=0, id=None):
 Class methods:
     super class with id
     assign each argument to the right attribute
+Raises:
+    TypeError: value must be an integer
+    ValueError: value must be > 0
 """
 
 
