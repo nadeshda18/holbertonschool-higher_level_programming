@@ -13,6 +13,7 @@ Class methods:
 Raises:
     TypeError: value must be an integer
     ValueError: value must be > 0
+Public method def area(self): return area value of Rectangle
 """
 
 
@@ -118,3 +119,7 @@ class Rectangle(Base):
     def id(self, value):
         """setter for id"""
         self.__id = value
+
+    def area(self):
+        """return area of Rectangle"""
+        return self.width * self.height
