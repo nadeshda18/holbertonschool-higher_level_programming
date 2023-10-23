@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
 Class Bass:
 Private class attribute: __nb_objects = 0
