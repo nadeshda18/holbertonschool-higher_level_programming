@@ -14,6 +14,7 @@ Raises:
     TypeError: value must be an integer
     ValueError: value must be > 0
 Public method def area(self): return area value of Rectangle
+Public method def display(self): prints in stdout the Rectangle
 """
 
 
@@ -123,3 +124,8 @@ class Rectangle(Base):
     def area(self):
         """return area of Rectangle"""
         return self.width * self.height
+
+    def display(self):
+        """prints in stdout the Rectangle"""
+        for i in range(self.height):
+            print("#" * self.width)
