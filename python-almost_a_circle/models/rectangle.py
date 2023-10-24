@@ -25,7 +25,8 @@ Public method def update(self, *args):
 -Update Public method def update(self, *args, **kwargs):
     -**kwargs must be skipped if *args exist or is not empty
     -each key in this dictionary represents an attribute to the instance
-"""
+    -"key-worded arguments" Argument oder is NOT important
+    """
 
 
 from models.base import Base
