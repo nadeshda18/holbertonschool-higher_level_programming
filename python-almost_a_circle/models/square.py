@@ -13,7 +13,6 @@ The overloading __str__ method should return [Square] (<id>) <x>/<y> - <size> -
 in our case, width or height
 Setter should assign width and height with the same value
 Setter should have the same value validation as Rectangle for width and height
-
 """
 
 from models.rectangle import Rectangle
