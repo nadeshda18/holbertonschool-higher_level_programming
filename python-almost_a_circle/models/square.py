@@ -65,3 +65,30 @@ class Square(Rectangle):
         """[Square] (<id>) <x>/<y> - <size>"""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x,
                                                  self.y, self.size)
+
+    def update(self, *args, **kwargs):
+        """update method
+        Args:
+            -args: no-keyword arguments
+            -kwargs: keyworded arguments
+        """
+        if args:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.size = arg
+                elif i == 2:
+                    self.x = arg
+                elif i == 3:
+                    self.y = arg
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "size":
+                    self.size = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
