@@ -101,14 +101,16 @@ class Base:
     def create(cls, **dictionary):
         """returns an instance with all attributes already set
         Args:
-            -**dictionary
+        -**dictionary
         """
+        dummy_instance = None
         if cls.__name__ == "Rectangle":
-            dummy = cls(1)
-        elif cls.__name__ == "Square":
-            dummy = cls(1)
-        dummy.update(**dictionary)
-        return dummy
+            dummy_instance = cls(1, 1)
+        if cls.__name__ == "Square":
+            dummy_instance = cls(1)
+        if dummy_instance is not None:
+            dummy_instance.update(**dictionary)
+        return dummy_instance
 
     @classmethod
     def load_from_file(cls):
@@ -121,6 +123,6 @@ class Base:
                 new_list = cls.from_json_string(f.read())
             for i, j in enumerate(new_list):
                 new_list[i] = cls.create(**new_list[i])
-        except:
+        except Exception as err:
             pass
         return new_list
