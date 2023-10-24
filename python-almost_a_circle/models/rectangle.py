@@ -22,6 +22,9 @@ Public method def update(self, *args):
     -4th argument: x attribute
     -5th argument: y attribute
     -"no-keyword arguments" Argument order is super important
+-Update Public method def update(self, *args, **kwargs):
+    -**kwargs must be skipped if *args exist or is not empty
+    -each key in this dictionary represents an attribute to the instance
 """
 
 
@@ -145,7 +148,7 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
 
-    def update(self, *args,):
+    def update(self, *args, **kwargs):
         """adding the public method
         assign arguments to each attribute
         """
@@ -161,3 +164,15 @@ class Rectangle(Base):
                     self.x = arg
                 if i == 4:
                     self.y = arg
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "width":
+                    self.width = value
+                if key == "height":
+                    self.height = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
