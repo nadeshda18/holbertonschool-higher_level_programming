@@ -24,8 +24,9 @@ def update(self, *args, **kwargs) that assigns attributes:
         key/value (keyword arguments)
     **kwargs must be skipped if *args exists and is not empty
 Each key in this dictionary represents an attribute to the instance
-
-
+Public method def to_dictionary(self): returns the dictionary representation of
+    Rectangle
+    -must contain id, width, height, x, y
 """
 
 from models.rectangle import Rectangle
@@ -45,11 +46,6 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
         self.size = size
 
-    def __str__(self):
-        """str method"""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-                                                 self.size)
-
     @property
     def size(self):
         """getter for width"""
@@ -65,25 +61,7 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def update(self, *args, **kwargs):
-        """update method"""
-        if args is not None and len(args) > 0:
-            for i in range(len(args)):
-                if i == 0:
-                    self.id = args[i]
-                elif i == 1:
-                    self.size = args[i]
-                elif i == 2:
-                    self.x = args[i]
-                elif i == 3:
-                    self.y = args[i]
-        else:
-            for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                elif key == "size":
-                    self.size = value
-                elif key == "x":
-                    self.x = value
-                elif key == "y":
-                    self.y = value
+    def __str__(self):
+        """[Square] (<id>) <x>/<y> - <size>"""
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x,
+                                                 self.y, self.size)
