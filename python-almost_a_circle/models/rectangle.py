@@ -15,6 +15,13 @@ Raises:
     ValueError: value must be > 0
 Public method def area(self): return area value of Rectangle
 Public method def display(self): prints in stdout the Rectangle
+Public method def update(self, *args):
+    -1st argument: id attribute
+    -2nd argument: width attribute
+    -3rd argument: height attribute
+    -4th argument: x attribute
+    -5th argument: y attribute
+    -"no-keyword arguments" Argument order is super important
 """
 
 
@@ -137,3 +144,20 @@ class Rectangle(Base):
         """return [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
+
+    def update(self, *args,):
+        """adding the public method
+        assign arguments to each attribute
+        """
+        if args:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                if i == 1:
+                    self.width = arg
+                if i == 2:
+                    self.height = arg
+                if i == 3:
+                    self.x = arg
+                if i == 4:
+                    self.y = arg
