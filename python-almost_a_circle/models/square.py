@@ -27,6 +27,7 @@ Each key in this dictionary represents an attribute to the instance
 Public method def to_dictionary(self): returns the dictionary representation of
     Rectangle
     -must contain id, width, height, x, y
+
 """
 
 from models.rectangle import Rectangle
