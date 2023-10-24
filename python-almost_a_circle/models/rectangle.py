@@ -26,7 +26,14 @@ Public method def update(self, *args):
     -**kwargs must be skipped if *args exist or is not empty
     -each key in this dictionary represents an attribute to the instance
     -"key-worded arguments" Argument oder is NOT important
-    """
+Update Public method def to_dictionary(self):
+that returns the dictionary representation of a Rectangle:
+    -id
+    -width
+    -height
+    -x
+    -y
+"""
 
 
 from models.base import Base
@@ -177,3 +184,8 @@ class Rectangle(Base):
                     self.x = value
                 if key == "y":
                     self.y = value
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Rectangle"""
+        return {"id": self.id, "width": self.width, "height": self.height,
+                "x": self.x, "y": self.y}
