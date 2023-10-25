@@ -13,6 +13,7 @@
         "ints",
         "isinstance",
         "issubclass",
+        "keyworded",
         "testmaxinteger",
         "Traceback"
     ]
