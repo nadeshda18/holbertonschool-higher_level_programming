@@ -1,10 +1,4 @@
-#!/usr/bin/python3
-"""unittest for testing Base Class"""
-
-
 import unittest
-
-
 from models.base import Base
 
 
@@ -21,6 +15,14 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b3.id, 89)
         b4 = Base()
         self.assertEqual(b4.id, 3)
+
+    def test_b_to_json_string(self):
+        """test to_json_string method"""
+        self.assertEqual(Base.to_json_string(None), "[]")
+        self.assertEqual(Base.to_json_string([]), "[]")
+        self.assertEqual(Base.to_json_string([{'x': 2}]), '[{"x": 2}]')
+        self.assertEqual(Base.to_json_string([{'x': 2}, {'y': 1}]),
+                         '[{"x": 2}, {"y": 1}]')
 
 
 if __name__ == "__main__":
