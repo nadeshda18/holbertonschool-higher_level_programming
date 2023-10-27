@@ -28,14 +28,6 @@ class TestBase(unittest.TestCase):
         """test if id is string"""
         self.assertTrue(Base("string").id == "string")
 
-    def test_b_to_json_string(self):
-        """test to_json_string method"""
-        self.assertEqual(Base.to_json_string(None), "[]")
-        self.assertEqual(Base.to_json_string([]), "[]")
-        self.assertEqual(Base.to_json_string([{'x': 2}]), '[{"x": 2}]')
-        self.assertEqual(Base.to_json_string([{'x': 2}, {'y': 1}]),
-                         '[{"x": 2}, {"y": 1}]')
-
     def test_create(self):
         """test for create"""
         r1 = Rectangle(3, 5, 1, 2, 99)
@@ -45,6 +37,14 @@ class TestBase(unittest.TestCase):
         self.assertEqual(str(r2), '[Rectangle] (99) 1/2 - 3/5')
         self.assertFalse(r1 is r2)
         self.assertFalse(r1 == r2)
+
+    def test_b_to_json_string(self):
+        """test to_json_string method"""
+        self.assertEqual(Base.to_json_string(None), "[]")
+        self.assertEqual(Base.to_json_string([]), "[]")
+        self.assertEqual(Base.to_json_string([{'x': 2}]), '[{"x": 2}]')
+        self.assertEqual(Base.to_json_string([{'x': 2}, {'y': 1}]),
+                         '[{"x": 2}, {"y": 1}]')
 
 
 if __name__ == "__main__":
