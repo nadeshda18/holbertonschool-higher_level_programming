@@ -6,18 +6,15 @@ class TestSquare(unittest.TestCase):
     """class for the Test Square"""
 
     def test_square_area(self):
-        """area test"""
         s = Square(4)
         self.assertEqual(s.area(), 16)
 
     def test_square_size_property(self):
-        """size property test"""
         s = Square(4)
         s.size = 8
         self.assertEqual(s.size, 8)
 
     def test_square_size_setter_validation(self):
-        """setter validation test"""
         with self.assertRaises(ValueError):
             s = Square(4)
             s.size = -3
@@ -26,18 +23,85 @@ class TestSquare(unittest.TestCase):
             s.size = "hello"
 
     def test_square_str(self):
-        """str test"""
         s = Square(4, 2, 1, 12)
         self.assertEqual(str(s), "[Square] (12) 2/1 - 4")
 
     def test_square_update(self):
-        """update test"""
         s = Square(4, 2, 1, 12)
         s.update(89)
         self.assertEqual(str(s), "[Square] (89) 2/1 - 4")
         s.update(89, 2)
         self.assertEqual(str(s), "[Square] (89) 2/1 - 2")
         s.update(89, 2, 3)
+
+    def test_checker(self):
+        with self.assertRaises(ValueError):
+            sqr = Square(0)
+
+    def test_size(self):
+        sqr = Square(1, 2)
+        self.assertEqual(sqr.size, 1)
+
+    def test_width(self):
+        sqr = Square(1, 2, 3)
+        self.assertEqual(sqr.width, 1)
+
+    def test_str_1_arg(self):
+        with self.assertRaises(TypeError):
+            sqr = Square("1")
+
+    def test_neg_arg_1(self):
+        with self.assertRaises(ValueError):
+            sqr = Square(-1)
+
+    def test_neg_arg_2(self):
+        with self.assertRaises(ValueError):
+            sqr = Square(1, -2)
+
+    def test_neg_arg_3(self):
+        with self.assertRaises(ValueError):
+            sqr = Square(1, 2, -3)
+
+    def test_to_dic(self):
+        sqr = Square(10, 2, 1, 6)
+        result = {'id': 6, 'x': 2, 'size': 10, 'y': 1}
+        self.assertDictEqual(sqr.to_dictionary(), result)
+
+    def test_update(self):
+        sqr = Square(5)
+        sqr.update(10)
+        self.assertEqual(sqr.id, 10)
+        sqr.update(1, 2)
+        self.assertEqual(sqr.id, 1)
+        self.assertEqual(sqr.width, 2)
+        sqr.update(1, 2, 3)
+        self.assertEqual(sqr.x, 3)
+        sqr.update(1, 2, 3, 4)
+        self.assertEqual(sqr.y, 4)
+
+    def test_create(self):
+        sqr1 = Square(2)
+        sqr1_dic = sqr1.to_dictionary()
+        sqr2 = Square.create(**sqr1_dic)
+        self.assertNotEqual(sqr1, sqr2)
+
+    def test_save_to_file_empty(self):
+        Square.save_to_file(None)
+        with open("Square.json") as fd:
+            self.assertEqual('[]', fd.read())
+
+    def test_save_to_file_empty_2(self):
+        Square.save_to_file([])
+        with open("Square.json") as fd:
+            self.assertEqual('[]', fd.read())
+
+    def test_load_file(self):
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        list_squares_input = [s1, s2]
+        Square.save_to_file(list_squares_input)
+        li_sqr_out = Square.load_from_file()
+        self.assertNotEqual(li_sqr_out[0], s1)
 
 
 if __name__ == "__main__":
