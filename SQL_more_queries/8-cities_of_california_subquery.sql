@@ -3,4 +3,4 @@
 -- results must be sorted in ascending order by cities.id
 USE hbtn-0d_usa;
 
-SELECT cities.id, cities.name FROM cities, states WHERE cities.states_id = states.id AND states.name = 'California' ORDER BY cities.id ASC;
+SELECT id, name FROM cities WHERE states_id = @california_id ORDER BY id ASC;
